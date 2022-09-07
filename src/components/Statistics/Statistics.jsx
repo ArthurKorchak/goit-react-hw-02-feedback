@@ -23,4 +23,8 @@ class Statistics extends Component {
     };
 };
 
+Statistics.propTypews = {
+    state: PropTypes.objectOf(PropTypes.number),
+};
+
 export default Statistics;

@@ -13,5 +13,9 @@ class FeedbackOptions extends Component {
     };
 };
 
-export default FeedbackOptions;
+FeedbackOptions.propTypes = {
+    state: PropTypes.objectOf(PropTypes.number),
+    onLeaveFeedback: PropTypes.func,
+};
 
+export default FeedbackOptions;

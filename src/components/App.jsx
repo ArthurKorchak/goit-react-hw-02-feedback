@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions'
+import Statistics from './Statistics/Statistics'
+import Section from './Section/Section'
 
 class App extends Component {
   state = {
@@ -10,54 +13,19 @@ class App extends Component {
   buttonsOperator = event => {
     const target = event.target.name;
     this.setState(prevState => {
-    return {
-        ...prevState,
-        [target]: prevState[target] + 1,
-      };
+      return { ...prevState, [target]: prevState[target] + 1, };
     });
-  };
-
-  countTotalFeedback = () => {
-    return Object.values(this.state).reduce((acc, item) => acc + item, 0);
-  };
-
-  countPositiveFeedbackPercentage = () => {
-    return ((this.state.good / this.countTotalFeedback()) * 100 || 0).toFixed(
-      0
-    );
   };
 
   render() {
     return (
       <>
-        <p>Please leave feedback</p>
-        <div className="buttonsSet">
-          {Object.keys(this.state).map(item => (
-            <button
-              type="button"
-              name={item}
-              key={item}
-              onClick={this.buttonsOperator}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-        <p>Statistics</p>
-        <div>
-          {Object.keys(this.state).map(item => (
-            <p key={item}>
-              {item}:<span>{this.state[item]}</span>
-            </p>
-          ))}
-          <p>
-            Total:<span>{this.countTotalFeedback()}</span>
-          </p>
-          <p>
-            Positive feedbacks:
-            <span>{this.countPositiveFeedbackPercentage()} %</span>
-          </p>
-        </div>
+        <Section title="Please leave feedback">
+          <FeedbackOptions state={this.state} onLeaveFeedback={this.buttonsOperator}></FeedbackOptions>
+        </Section>
+        <Section title="Statistics">
+          <Statistics state={this.state}></Statistics>
+        </Section>
       </>
     );
   };

@@ -7,7 +7,7 @@ export class FeedbackOptions extends Component {
         return (
             <div className={s.buttonsSet}>
                 {Object.keys(this.props.state).map(item => (
-                    <button type={s.button} name={item} key={item} onClick={this.props.onLeaveFeedback}>{item}</button>
+                    <button className={s.button} type='button' name={item} key={item} onClick={this.props.onLeaveFeedback}>{item}</button>
                 ))}
             </div>
         );

@@ -15,7 +15,7 @@ export class Statistics extends Component {
         return (
             <div className={s.statsList}>
                 {Object.keys(this.props.state).map(item => (
-                    <p key={item}>{item}: <span>{this.props.state[item]}</span></p>
+                    <p className={s.item} key={item}>{item}: <span>{this.props.state[item]}</span></p>
                 ))}
                 <p>Total: <span>{this.countTotalFeedback()}</span></p>
                 <p>Positive feedbacks: <span>{this.countPositiveFeedbackPercentage()}%</span></p>

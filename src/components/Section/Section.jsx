@@ -6,7 +6,7 @@ export class Section extends Component {
     render() {
         return (
             <section className={s.section}>
-                <p>{this.props.title}</p>
+                <p className={s.title}>{this.props.title}</p>
                 {this.props.children}
             </section>
         );

@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
+import s from './Statistics.module.css'
 
-class Statistics extends Component { 
+export class Statistics extends Component { 
     countTotalFeedback = () => {
         return Object.values(this.props.state).reduce((acc, item) => acc + item, 0);
      };
@@ -12,7 +13,7 @@ class Statistics extends Component {
 
     render() {
         return (
-            <div>
+            <div className={s.statsList}>
                 {Object.keys(this.props.state).map(item => (
                     <p key={item}>{item}: <span>{this.props.state[item]}</span></p>
                 ))}
@@ -24,7 +25,9 @@ class Statistics extends Component {
 };
 
 Statistics.propTypews = {
-    state: PropTypes.objectOf(PropTypes.number),
+    state: PropTypes.shape({
+        good: PropTypes.number,
+        neutral: PropTypes.number,
+        bad: PropTypes.number,
+    }),
 };
-
-export default Statistics;

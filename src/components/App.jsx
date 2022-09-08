@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import FeedbackOptions from './FeedbackOptions/FeedbackOptions'
-import Statistics from './Statistics/Statistics'
-import Section from './Section/Section'
+import { Component } from 'react';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions'
+import { Statistics } from './Statistics/Statistics'
+import { Section } from './Section/Section'
 
 class App extends Component {
   state = {
@@ -13,7 +13,7 @@ class App extends Component {
   buttonsOperator = event => {
     const target = event.target.name;
     this.setState(prevState => {
-      return { ...prevState, [target]: prevState[target] + 1, };
+      return {[target]: prevState[target] + 1};
     });
   };
 

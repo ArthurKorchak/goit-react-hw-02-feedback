@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
+import s from './Section.module.css'
 
-class Section extends Component {
+export class Section extends Component {
     render() {
         return (
-            <section>
+            <section className={s.section}>
                 <p>{this.props.title}</p>
                 {this.props.children}
             </section>
@@ -16,5 +17,3 @@ Section.propTypes = {
     title: PropTypes.string,
     children: PropTypes.element,
 };
-
-export default Section;

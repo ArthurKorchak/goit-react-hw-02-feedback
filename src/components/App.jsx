@@ -21,10 +21,10 @@ class App extends Component {
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackOptions state={this.state} onLeaveFeedback={this.buttonsOperator}></FeedbackOptions>
+          <FeedbackOptions state={this.state} onLeaveFeedback={this.buttonsOperator} />
         </Section>
         <Section title="Statistics">
-          <Statistics state={this.state}></Statistics>
+          <Statistics state={this.state} />
         </Section>
       </>
     );
